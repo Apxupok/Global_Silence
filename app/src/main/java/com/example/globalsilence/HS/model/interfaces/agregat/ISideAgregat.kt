@@ -19,10 +19,10 @@ interface ISideAgregat {
         }
         fun getLengthForCorpus(section:Int):Int{
             val length = when (section){
-                1 -> 980-10
-                2 -> 1400-10
-                3 -> 1810-10
-                4 -> 2100-10
+                1 -> 970
+                2 -> 1390
+                3 -> 1800
+                4 -> 2090
                 else-> throw Exception("Нет таких корпусов")
             }
             return length

@@ -2,7 +2,7 @@ package com.example.globalsilence.HS.model
 
 abstract class Parts
 {
-    open var lenght:Int = 0
+    open var length:Int = 0
         get() {
             return field
         }
@@ -15,6 +15,10 @@ abstract class Parts
             return field
         }
     open var name:String = ""
+        get() {
+            return field
+        }
+    open var deep:Int = 0
         get() {
             return field
         }

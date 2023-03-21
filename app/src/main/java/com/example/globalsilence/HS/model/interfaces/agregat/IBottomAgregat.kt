@@ -3,6 +3,7 @@ package com.example.globalsilence.HS.model.interfaces.agregat
 interface IBottomAgregat {
     val section: Int
     val length:Int
+    val height: Int
     companion object {
         fun getSection(doors: Int, boxes: Int): Int {
             return doors + if (boxes%2==0){ boxes/2 } else boxes/3
@@ -27,5 +28,6 @@ interface IBottomAgregat {
             }
             return length
         }
+
     }
 }
