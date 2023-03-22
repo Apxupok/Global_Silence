@@ -18,7 +18,7 @@ class BeamVertical(lengthP: Int,heightP:Int):Parts() {
             815-> height = 815
 
         }
-        name = "$lengthP"+"x"+"$heightP"
+        name = "Перекладина верткальная $lengthP"+"x"+"$heightP"
 
     }
 

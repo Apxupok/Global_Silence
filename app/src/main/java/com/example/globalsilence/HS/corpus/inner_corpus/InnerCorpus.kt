@@ -34,7 +34,7 @@ class InnerCorpus(doors: Int, boxes: Int, heightP:Int, deepP: Int):Asserts(),IBo
                 sideDashL = SideDash(if (section>2){180}else{160},deepP-70,"Левая")
                 sideDashR = SideDash(if (section>2){180}else{160},deepP-70,"Правая")
                 beamHorizontal = BeamHorizontal(beamVertical.length*section)
-                backDash = BackDash(length-50*2,heightP)
+                backDash = BackDash(length-50*2,height-50*2)
             }
             485 -> {
                 height = 485

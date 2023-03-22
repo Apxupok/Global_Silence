@@ -39,6 +39,6 @@ class Corpus(doors: Int, boxes: Int, deep: Int, heightP:Int): Asserts(), IBottom
             //else -> throw Exception("$heightP")
         }
     }
-    override val name = "HS$doors$boxes"+"x$length"
+    override val name = "Корпус$doors$boxes"+"x$length"
 }
 

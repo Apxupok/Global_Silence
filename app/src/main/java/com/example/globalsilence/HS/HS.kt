@@ -15,7 +15,7 @@ class HS(doors: Int, boxes: Int, deep: Int, unit: String,mode:String): Asserts()
 
     var corpus = Corpus(0,0,0,0)
 
-    //var listOfAsserts = mutableListOf<Asserts>(corpus)
+    var listOfAsserts = mutableListOf<Asserts>(corpus)
     init {
         when (unit) {
             "Боковое" -> {
@@ -25,7 +25,7 @@ class HS(doors: Int, boxes: Int, deep: Int, unit: String,mode:String): Asserts()
                     "Среднетемпературный"->"CХС$doors$boxes"+"x$length"
                     else -> "НХС$doors$boxes"+"x$length"
                 }
-                corpus = Corpus(doors,boxes,deep,700)
+                corpus = Corpus(doors,boxes,deep-70,700)
             }
             "Нижнее" -> {
                 section = IBottomAgregat.getSection(doors, boxes)
@@ -34,11 +34,12 @@ class HS(doors: Int, boxes: Int, deep: Int, unit: String,mode:String): Asserts()
                     "Среднетемпературный"->"CХС$doors$boxes"+"x$length"
                     else -> "НХС$doors$boxes"+"x$length"
                 }
-                corpus = Corpus(doors,boxes,deep,485)
+                corpus = Corpus(doors,boxes,deep-70,485)
 
             }
             else->{throw Exception("Нет такого агрегата")}
         }
+        listOfAsserts = mutableListOf<Asserts>(corpus)
     }
 
 

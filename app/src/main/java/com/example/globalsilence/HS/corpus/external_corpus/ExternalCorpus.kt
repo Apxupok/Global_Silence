@@ -19,13 +19,13 @@ class ExternalCorpus(doors: Int, boxes: Int, heightP:Int, deep: Int): Asserts(),
     override var length = 0
     override var height = 0
 
-    var sideDashL = SideDash(0,0,"Левая")
-    var sideDashR = SideDash(0,0,"Правая")
-    var beamVertical = BeamVertical(0,0)
+    var sideDashL = SideDash(0,0,"левая")
+    var sideDashR = SideDash(0,0,"правая")
+    var beamVertical = if (section>1){BeamVertical(0,0)}else null
     var beamHorizontal = BeamHorizontal(0)
     var backDash = BackDash(0,0)
 
-    var listOfDetails = mutableListOf<Parts>(sideDashL,sideDashR,beamHorizontal,beamVertical)
+    var listOfParts = mutableListOf<Parts?>()
 
     init {
         when (heightP){
@@ -40,10 +40,19 @@ class ExternalCorpus(doors: Int, boxes: Int, heightP:Int, deep: Int): Asserts(),
                     4->75
                     else-> 0
                 },700)
-                sideDashL = SideDash(if (section>2){180}else{160},deep-70,"Левая")
-                sideDashR = SideDash(if (section>2){180}else{160},deep-70,"Правая")
-                beamHorizontal = BeamHorizontal(beamVertical.length*section)
+                if (section!=1){listOfParts.add(beamVertical)}
+
+                sideDashL = SideDash(if (section>2){180}else{160},deep,"левая")
+                listOfParts.add(sideDashL)
+
+                sideDashR = SideDash(if (section>2){180}else{160},deep,"правая")
+                listOfParts.add(sideDashR)
+
+                beamHorizontal = BeamHorizontal(beamVertical?.length!! *section)
+                listOfParts.add(beamHorizontal)
+
                 backDash = BackDash(length-50*2,heightP)
+                listOfParts.add(backDash)
             }
             485 -> {
                 height = 485
@@ -51,10 +60,19 @@ class ExternalCorpus(doors: Int, boxes: Int, heightP:Int, deep: Int): Asserts(),
                 length = ISideAgregat.getLengthForCorpus(section)
 
                 beamVertical = BeamVertical(deep,700)
-                sideDashL = SideDash(50,deep-70,"Левая")
-                sideDashR = SideDash(50,deep-70,"Правая")
-                beamHorizontal = BeamHorizontal(beamVertical.length*section)
+                if (section!=1){listOfParts.add(beamVertical)}
+
+                sideDashL = SideDash(50,deep,"левая")
+                listOfParts.add(sideDashL)
+
+                sideDashR = SideDash(50,deep,"правая")
+                listOfParts.add(sideDashR)
+
+                beamHorizontal = BeamHorizontal(beamVertical?.length!!*section)
+                listOfParts.add(beamHorizontal)
+
                 backDash = BackDash(length-50*2,height)
+                listOfParts.add(backDash)
             }
         }
     }

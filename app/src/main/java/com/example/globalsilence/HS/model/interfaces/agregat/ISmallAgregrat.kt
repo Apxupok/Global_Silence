@@ -18,10 +18,10 @@ interface ISmallAgregrat {
         }
         fun getLengthForCorpus(section:Int):Int{
             val length = when (section){
-                1 -> 785-10
-                2 -> 1200-10
-                3 -> 1650-10
-                4 -> 2060-10
+                1 -> 575
+                2 -> 785
+                3 -> 1225
+                4 -> 1655
                 else-> throw Exception("Нет таких корпусов")
             }
             return length
