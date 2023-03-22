@@ -21,20 +21,22 @@ class Corpus(doors: Int, boxes: Int, deep: Int, heightP:Int): Asserts(), IBottom
 
     init {
         when (heightP) {
+            //Боковое
             700 -> {
                 section = ISideAgregat.getSection(doors, boxes)
                 length = ISideAgregat.getLengthForCorpus(section)
-                height = 700
+                height = heightP
                 externalCorpus = ExternalCorpus(doors, boxes, height, deep)
-                innerCorpus = InnerCorpus(doors, boxes, height - 100, deep - 100)
+                innerCorpus = InnerCorpus(doors, boxes, height - 40, deep)
 
             }
-            485 -> {
+            //Нижнее
+            750 -> {
                 section = IBottomAgregat.getSection(doors, boxes)
                 length = IBottomAgregat.getLengthForCorpus(section)
-                height = 485
+                height = heightP
                 externalCorpus = ExternalCorpus(doors, boxes, height, deep)
-                innerCorpus = InnerCorpus(doors, boxes, height - 100, deep - 100)
+                innerCorpus = InnerCorpus(doors, boxes, 445, deep)
             }
             //else -> throw Exception("$heightP")
         }

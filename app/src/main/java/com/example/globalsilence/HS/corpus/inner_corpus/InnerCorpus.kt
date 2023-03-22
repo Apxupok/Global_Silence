@@ -1,10 +1,8 @@
 package com.example.globalsilence.HS.corpus.inner_corpus
 
-import com.example.globalsilence.HS.corpus.external_corpus.parts.BackDash
-import com.example.globalsilence.HS.corpus.external_corpus.parts.BeamHorizontal
-import com.example.globalsilence.HS.corpus.external_corpus.parts.BeamVertical
-import com.example.globalsilence.HS.corpus.external_corpus.parts.SideDash
+import com.example.globalsilence.HS.corpus.inner_corpus.parts.*
 import com.example.globalsilence.HS.model.Asserts
+import com.example.globalsilence.HS.model.Parts
 import com.example.globalsilence.HS.model.interfaces.agregat.IBottomAgregat
 import com.example.globalsilence.HS.model.interfaces.agregat.ISideAgregat
 import com.example.globalsilence.HS.model.interfaces.agregat.ISmallAgregrat
@@ -14,37 +12,76 @@ class InnerCorpus(doors: Int, boxes: Int, heightP:Int, deepP: Int):Asserts(),IBo
     override var length = 0
     override var height = 0
 
-    var sideDashL = SideDash(0,0,"Левая")
-    var sideDashR = SideDash(0,0,"Правая")
-    var beamVertical = BeamVertical(0,0)
+    var sideDashL = SideDash(0, 0, "левая", 0)
+    var sideDashR = SideDash(0, 0, "правая", 0)
+    var beamVertical = if (section>1){
+        BeamVertical(0,0) }else null
     var beamHorizontal = BeamHorizontal(0)
-    var backDash = BackDash(0,0)
+    var backDash = BackDash(0, 0)
+    var bottom = Bottom(0,0)
+    var panel = Panel(130,0)
+
+    var listOfParts = mutableListOf<Parts?>()
     init {
         when (heightP){
-            700 -> {
-                height = 700
+            660 -> {
+                height = 660
                 section = ISideAgregat.getSection(doors,boxes)
-                length = ISideAgregat.getLengthForCorpus(section)
+                length = ISideAgregat.getLengthForCorpus(section)-100
+
                 beamVertical = BeamVertical(when(section){
                     2->55
                     3->65
                     4->75
                     else-> 0
-                },700)
-                sideDashL = SideDash(if (section>2){180}else{160},deepP-70,"Левая")
-                sideDashR = SideDash(if (section>2){180}else{160},deepP-70,"Правая")
-                beamHorizontal = BeamHorizontal(beamVertical.length*section)
-                backDash = BackDash(length-50*2,height-50*2)
+                },660)
+                if (section > 1){listOfParts.add(beamVertical!!)}
+
+                sideDashL = SideDash(if (section>2){180}else{160},deepP,"левая",height)
+                listOfParts.add(sideDashL)
+
+                sideDashR = SideDash(if (section>2){180}else{160},deepP,"правая",height)
+                listOfParts.add(sideDashR)
+
+                beamHorizontal = BeamHorizontal(if (section > 1) { beamVertical?.length!! * section } else {365 })
+                listOfParts.add(beamHorizontal)
+
+                backDash = BackDash(length,height)
+                listOfParts.add(backDash)
+
+                bottom = Bottom(length,deepP)
+                listOfParts.add(bottom)
+
+                panel = Panel(130,height)
+                listOfParts.add(panel)
             }
-            485 -> {
-                height = 485
+
+            445 -> {
+                height = heightP
                 section = ISideAgregat.getSection(doors,boxes)
-                length = ISideAgregat.getLengthForCorpus(section)
-                beamVertical = BeamVertical(deepP,700)
-                sideDashL = SideDash(50,deepP-70,"Левая")
-                sideDashR = SideDash(50,deepP-70,"Правая")
-                beamHorizontal = BeamHorizontal(beamVertical.length*section)
-                backDash = BackDash(length-50*2,height)
+                length = ISideAgregat.getLengthForCorpus(section)-100
+
+                beamVertical = BeamVertical(deepP,445)
+                if (section!=1){listOfParts.add(beamVertical!!)}
+
+                sideDashL = SideDash(50,deepP,"левая",height)
+                listOfParts.add(sideDashL)
+
+                sideDashR = SideDash(50,deepP,"правая",height)
+                listOfParts.add(sideDashR)
+
+                beamHorizontal = BeamHorizontal(beamVertical!!.length*section)
+                listOfParts.add(beamHorizontal)
+
+                backDash = BackDash(length,height)
+                listOfParts.add(backDash)
+
+                bottom = Bottom(length,deepP)
+                listOfParts.add(bottom)
+
+                panel = Panel(130,height)
+                listOfParts.add(panel)
+
             }
         }
     }

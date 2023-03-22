@@ -11,22 +11,21 @@ class BackDash(lengthP:Int,heighP:Int): Parts() {
     init {
 
         when (lengthP){
-            475 -> name += lengthP
-            685 -> name += lengthP
-            1125 -> name += lengthP
-            1555-> name += lengthP
+            475 -> length = lengthP
+            685 -> length = lengthP
+            1125 -> length = lengthP
+            1555-> length = lengthP
 
-            480 -> name += lengthP
-            900 -> name += lengthP
-            1385 -> name += lengthP
-            1800 -> name += lengthP
+            480 -> length = lengthP
+            900 -> length = lengthP
+            1385 -> length = lengthP
+            1800 -> length = lengthP
                 //else -> throw Exception("Нет таких корпусов")
         }
-        name+="x$deep"+"x"
         when (heighP){
-            485-> name += 485
-            700-> name += 700
+            750-> height = heighP
+            700-> height = heighP
         }
-
+        name = "Задняя стенка $length"+"x$deep"+"x$height"
     }
 }

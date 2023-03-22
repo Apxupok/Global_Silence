@@ -1,4 +1,4 @@
-package com.example.globalsilence.HS.corpus.external_corpus.parts
+package com.example.globalsilence.HS.corpus.inner_corpus.parts
 
 import com.example.globalsilence.HS.model.Parts
 
@@ -6,7 +6,7 @@ class BeamHorizontal(lengthP: Int):Parts() {
     override var length: Int = 0
     override var height: Int = 50
     override var name: String = ""
-    override var deep: Int = 27
+    override var deep: Int = 25
 
     init {
         when(lengthP){

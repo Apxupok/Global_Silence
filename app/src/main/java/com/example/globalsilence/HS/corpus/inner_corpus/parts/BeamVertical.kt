@@ -1,4 +1,4 @@
-package com.example.globalsilence.HS.corpus.external_corpus.parts
+package com.example.globalsilence.HS.corpus.inner_corpus.parts
 
 import com.example.globalsilence.HS.model.Parts
 
@@ -10,13 +10,13 @@ class BeamVertical(lengthP: Int,heightP:Int):Parts() {
 
     init {
         when(lengthP){
-            55-> length = 55
-            65-> length = 65
-            75-> length = 75
+            55-> length = lengthP
+            65-> length = lengthP
+            75-> length = lengthP
         }
         when(heightP){
-            700-> height = heightP
-            750-> height = heightP
+            650-> height = heightP
+            385-> height = heightP
 
         }
         name = "Перекладина вертикальная $length"+"x$deep"+"x$height"
