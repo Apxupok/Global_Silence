@@ -25,7 +25,7 @@ class ExternalCorpus(doors: Int, boxes: Int, heightP:Int, deep: Int): Asserts(),
     var beamHorizontal = BeamHorizontal(0)
     var backDash = BackDash(0,0)
 
-    var listOfParts = mutableListOf<Parts?>()
+    override var listOfParts = mutableListOf<Parts?>()
 
     init {
         when (heightP){

@@ -21,7 +21,7 @@ class InnerCorpus(doors: Int, boxes: Int, heightP:Int, deepP: Int):Asserts(),IBo
     var bottom = Bottom(0,0)
     var panel = Panel(130,0)
 
-    var listOfParts = mutableListOf<Parts?>()
+    override var listOfParts = mutableListOf<Parts?>()
     init {
         when (heightP){
             660 -> {
