@@ -2,10 +2,10 @@ package com.example.globalsilence.HS.corpus
 
 import com.example.globalsilence.HS.corpus.external_corpus.ExternalCorpus
 import com.example.globalsilence.HS.corpus.inner_corpus.InnerCorpus
-import com.example.globalsilence.HS.model.Asserts
-import com.example.globalsilence.HS.model.interfaces.agregat.IBottomAgregat
-import com.example.globalsilence.HS.model.interfaces.agregat.ISideAgregat
-import com.example.globalsilence.HS.model.interfaces.agregat.ISmallAgregrat
+import com.example.globalsilence.model.Asserts
+import com.example.globalsilence.HS.agregat_interface.IBottomAgregat
+import com.example.globalsilence.HS.agregat_interface.ISideAgregat
+import com.example.globalsilence.HS.agregat_interface.ISmallAgregrat
 
 
 
@@ -13,7 +13,8 @@ class Corpus(doors: Int, boxes: Int, deep: Int, heightP:Int): Asserts(), IBottom
     ISideAgregat, ISmallAgregrat {
     override var section = 0
     override var length = 0
-    override var height = 0
+    override var height = heightP
+    override var deep = 0
 
 
     var externalCorpus = ExternalCorpus(0, 0, 0, 0)
@@ -41,6 +42,6 @@ class Corpus(doors: Int, boxes: Int, deep: Int, heightP:Int): Asserts(), IBottom
             //else -> throw Exception("$heightP")
         }
     }
-    override val name = "Корпус$doors$boxes"+"x$length"
+    override val name = "Корпус$doors$boxes"+" $length"+"x$deep"+"x$height"
 }
 

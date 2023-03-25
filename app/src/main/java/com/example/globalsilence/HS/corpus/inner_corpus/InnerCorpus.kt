@@ -1,13 +1,14 @@
 package com.example.globalsilence.HS.corpus.inner_corpus
 
 import com.example.globalsilence.HS.corpus.inner_corpus.parts.*
-import com.example.globalsilence.HS.model.Asserts
-import com.example.globalsilence.HS.model.Parts
-import com.example.globalsilence.HS.model.interfaces.agregat.IBottomAgregat
-import com.example.globalsilence.HS.model.interfaces.agregat.ISideAgregat
-import com.example.globalsilence.HS.model.interfaces.agregat.ISmallAgregrat
+import com.example.globalsilence.model.Asserts
+import com.example.globalsilence.model.Parts
+import com.example.globalsilence.HS.agregat_interface.IBottomAgregat
+import com.example.globalsilence.HS.agregat_interface.ISideAgregat
+import com.example.globalsilence.HS.agregat_interface.ISmallAgregrat
 
-class InnerCorpus(doors: Int, boxes: Int, heightP:Int, deepP: Int):Asserts(),IBottomAgregat,ISideAgregat,ISmallAgregrat {
+class InnerCorpus(doors: Int, boxes: Int, heightP:Int, deepP: Int): Asserts(), IBottomAgregat,
+    ISideAgregat, ISmallAgregrat {
     override var section = 0
     override var length = 0
     override var height = 0

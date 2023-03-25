@@ -1,11 +1,12 @@
 package com.example.globalsilence.HS
 
 import com.example.globalsilence.HS.corpus.Corpus
-import com.example.globalsilence.HS.model.Asserts
-import com.example.globalsilence.HS.model.Parts
-import com.example.globalsilence.HS.model.interfaces.agregat.IBottomAgregat
-import com.example.globalsilence.HS.model.interfaces.agregat.ISideAgregat
-import com.example.globalsilence.HS.model.interfaces.agregat.ISmallAgregrat
+import com.example.globalsilence.model.Asserts
+import com.example.globalsilence.model.Parts
+import com.example.globalsilence.HS.agregat_interface.IBottomAgregat
+import com.example.globalsilence.HS.agregat_interface.ISideAgregat
+import com.example.globalsilence.HS.agregat_interface.ISmallAgregrat
+import com.example.globalsilence.HS.сountertop.Countertop
 
 class HS(doors: Int, boxes: Int, deep: Int, unit: String,mode:String): Asserts(), IBottomAgregat,
     ISideAgregat, ISmallAgregrat {
@@ -16,6 +17,7 @@ class HS(doors: Int, boxes: Int, deep: Int, unit: String,mode:String): Asserts()
 
     var corpus = Corpus(0,0,0,0)
     var panelOfControl = PanelOfControl()
+    var countertop = Countertop()
 
     override var listOfAsserts = mutableListOf<Asserts?>()
     override var listOfParts = mutableListOf<Parts?>()
@@ -42,7 +44,7 @@ class HS(doors: Int, boxes: Int, deep: Int, unit: String,mode:String): Asserts()
             }
             else->{throw Exception("Нет такого агрегата")}
         }
-        listOfAsserts = mutableListOf<Asserts?>(corpus)
+        listOfAsserts = mutableListOf<Asserts?>(corpus,countertop)
         listOfParts = mutableListOf<Parts?>(panelOfControl)
     }
 

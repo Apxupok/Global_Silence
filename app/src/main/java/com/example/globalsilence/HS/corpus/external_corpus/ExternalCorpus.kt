@@ -5,11 +5,11 @@ import com.example.globalsilence.HS.corpus.external_corpus.parts.BackDash
 import com.example.globalsilence.HS.corpus.external_corpus.parts.BeamHorizontal
 import com.example.globalsilence.HS.corpus.external_corpus.parts.BeamVertical
 import com.example.globalsilence.HS.corpus.external_corpus.parts.SideDash
-import com.example.globalsilence.HS.model.Asserts
-import com.example.globalsilence.HS.model.Parts
-import com.example.globalsilence.HS.model.interfaces.agregat.IBottomAgregat
-import com.example.globalsilence.HS.model.interfaces.agregat.ISideAgregat
-import com.example.globalsilence.HS.model.interfaces.agregat.ISmallAgregrat
+import com.example.globalsilence.model.Asserts
+import com.example.globalsilence.model.Parts
+import com.example.globalsilence.HS.agregat_interface.IBottomAgregat
+import com.example.globalsilence.HS.agregat_interface.ISideAgregat
+import com.example.globalsilence.HS.agregat_interface.ISmallAgregrat
 
 
 class ExternalCorpus(doors: Int, boxes: Int, heightP:Int, deep: Int): Asserts(), IBottomAgregat,

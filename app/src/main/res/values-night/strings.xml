@@ -1,11 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Global Silence</string>
     <string name="textAgregat">Расположение агрегата</string>
     <string name="textWidth">Ширина</string>
     <string name="deepText">Глубина</string>
     <string name="textHeight">Высота</string>
     <string name="countBox">Количество ящиков</string>
-    <string name="textAsserts">Сборки</string>
     <string name="textParts">Детали</string>
     <string name="countDoor">Количество дверей</string>
 </resources>

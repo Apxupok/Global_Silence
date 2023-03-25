@@ -7,16 +7,19 @@
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginTop="324dp"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#4F462D6E"
+        app:layout_constraintBottom_toTopOf="@+id/textAsserts"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-         />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints">
+
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -36,14 +39,15 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:gravity="center"
-            android:text="Расположение агрегата" />
+            android:text="@string/textAgregat" />
 
         <Spinner
             android:id="@+id/spinnerAgregat"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
-            android:gravity="center" />
+            android:gravity="center"
+            tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>
 
     <LinearLayout
@@ -55,7 +59,8 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:id="@+id/widthLinearLayout"
@@ -71,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Ширина"
+                android:text="@string/textWidth"
                 android:textSize="14sp" />
 
             <Spinner
@@ -79,7 +84,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center" />
+                android:gravity="center"
+                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
         <LinearLayout
@@ -96,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Глубина"
+                android:text="@string/deepText"
                 android:textSize="14sp" />
 
             <Spinner
@@ -104,7 +110,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center" />
+                android:gravity="center"
+                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
         <LinearLayout
@@ -122,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Высота"
+                android:text="@string/textHeight"
                 android:textSize="14sp" />
 
             <Spinner
@@ -130,7 +137,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center" />
+                android:gravity="center"
+                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
 
@@ -145,7 +153,8 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/dimensionsLinearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/dimensionsLinearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/dimensionsLinearLayout"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:id="@+id/doorLinearLayout"
@@ -161,7 +170,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Количество дверей"
+                android:text="@string/countDoor"
                 android:textSize="14sp" />
 
             <Spinner
@@ -169,7 +178,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center" />
+                android:gravity="center"
+                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
         <LinearLayout
@@ -186,7 +196,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Количество ящиков"
+                android:text="@string/countBox"
                 android:textSize="14sp" />
 
             <Spinner
@@ -194,32 +204,56 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center" />
+                android:gravity="center"
+                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
-
 
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/textAsserts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:text="@string/textAsserts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boxDoorLinearLayout" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewAsserts"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="120dp"
         android:layout_marginTop="32dp"
+        android:layout_weight="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boxDoorLinearLayout"
-        android:layout_weight="1"/>
+        app:layout_constraintTop_toBottomOf="@+id/textAsserts" />
+
+    <TextView
+        android:id="@+id/textParts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:text="@string/textParts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewAsserts" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewParts"
         android:layout_width="0dp"
         android:layout_height="200dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="48dp"
+        android:layout_weight="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewAsserts"
-        android:layout_weight="1"/>
+        app:layout_constraintTop_toBottomOf="@+id/textParts" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

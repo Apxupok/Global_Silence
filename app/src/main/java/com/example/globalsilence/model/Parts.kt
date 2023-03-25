@@ -1,4 +1,4 @@
-package com.example.globalsilence.HS.model
+package com.example.globalsilence.model
 
 abstract class Parts
 {

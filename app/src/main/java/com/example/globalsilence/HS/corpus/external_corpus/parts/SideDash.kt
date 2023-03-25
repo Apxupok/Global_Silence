@@ -1,8 +1,8 @@
 package com.example.globalsilence.HS.corpus.external_corpus.parts
 
-import com.example.globalsilence.HS.model.Parts
+import com.example.globalsilence.model.Parts
 
-class SideDash(lengthP:Int, deepP:Int, side:String,heightP:Int):Parts() {
+class SideDash(lengthP:Int, deepP:Int, side:String,heightP:Int): Parts() {
     override var length: Int = 0
     override var name: String = ""
     override var deep: Int = 0

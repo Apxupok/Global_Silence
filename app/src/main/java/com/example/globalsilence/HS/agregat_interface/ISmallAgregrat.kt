@@ -1,4 +1,4 @@
-package com.example.globalsilence.HS.model.interfaces.agregat
+package com.example.globalsilence.HS.agregat_interface
 
 interface ISmallAgregrat {
     val section: Int
