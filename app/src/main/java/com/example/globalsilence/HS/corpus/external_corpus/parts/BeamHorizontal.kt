@@ -1,8 +1,8 @@
 package com.example.globalsilence.HS.corpus.external_corpus.parts
 
-import com.example.globalsilence.model.Parts
+import com.example.globalsilence.data.Part
 
-class BeamHorizontal(lengthP: Int): Parts() {
+class BeamHorizontal(lengthP: Int): Part() {
     override var length: Int = 0
     override var height: Int = 50
     override var name: String = ""

@@ -1,26 +1,36 @@
 package com.example.globalsilence.HS
 
 import com.example.globalsilence.HS.corpus.Corpus
-import com.example.globalsilence.model.Asserts
-import com.example.globalsilence.model.Parts
+import com.example.globalsilence.data.Assert
+import com.example.globalsilence.data.Part
 import com.example.globalsilence.HS.agregat_interface.IBottomAgregat
 import com.example.globalsilence.HS.agregat_interface.ISideAgregat
 import com.example.globalsilence.HS.agregat_interface.ISmallAgregrat
 import com.example.globalsilence.HS.сountertop.Countertop
 
-class HS(doors: Int, boxes: Int, deep: Int, unit: String,mode:String): Asserts(), IBottomAgregat,
+class HS(doors: Int, boxes: Int, deepP: Int, unit: String,mode:String):  IBottomAgregat,
     ISideAgregat, ISmallAgregrat {
+    override var name = ""
+    override var deep = deepP
     override var length = 0
     override var section = 0
     override var height = 850
-    override var name = ""
 
-    var corpus = Corpus(0,0,0,0)
+
+    var corpus: Assert? = null
+    var countertop: Assert? = Assert(
+        "Столешница на $deepP",
+        300,
+        300,
+        37,
+        Countertop()
+    )
+
     var panelOfControl = PanelOfControl()
-    var countertop = Countertop()
 
-    override var listOfAsserts = mutableListOf<Asserts?>()
-    override var listOfParts = mutableListOf<Parts?>()
+
+    override var listOfAsserts = mutableListOf<Assert?>()
+    override var listOfParts = mutableListOf<Part?>()
     init {
         when (unit) {
             "Боковое" -> {
@@ -30,7 +40,12 @@ class HS(doors: Int, boxes: Int, deep: Int, unit: String,mode:String): Asserts()
                     "Среднетемпературный"->"CХС$doors$boxes"+"x$length"
                     else -> "НХС$doors$boxes"+"x$length"
                 }
-                corpus = Corpus(doors,boxes,deep-70,700)
+                corpus = Assert(
+                    Corpus(doors,boxes,deep-70,700).name,
+                    Corpus(doors,boxes,deep-70,700).length,
+                    Corpus(doors,boxes,deep-70,700).deep,
+                    Corpus(doors,boxes,deep-70,700).height,
+                    Corpus(doors,boxes,deep-70,700))
             }
             "Нижнее" -> {
                 section = IBottomAgregat.getSection(doors, boxes)
@@ -39,16 +54,21 @@ class HS(doors: Int, boxes: Int, deep: Int, unit: String,mode:String): Asserts()
                     "Среднетемпературный"->"CХС$doors$boxes"+"x$length"
                     else -> "НХС$doors$boxes"+"x$length"
                 }
-                corpus = Corpus(doors,boxes,deep-70,485)
+                corpus = Assert(
+                    Corpus(doors,boxes,deep-70,485).name,
+                    Corpus(doors,boxes,deep-70,485).length,
+                    Corpus(doors,boxes,deep-70,485).deep,
+                    Corpus(doors,boxes,deep-70,485).height,
+                    Corpus(doors,boxes,deep-70,485))
 
             }
             else->{throw Exception("Нет такого агрегата")}
         }
-        listOfAsserts = mutableListOf<Asserts?>(corpus,countertop)
-        listOfParts = mutableListOf<Parts?>(panelOfControl)
+        listOfAsserts = mutableListOf(corpus,countertop)
+        listOfParts = mutableListOf(panelOfControl)
     }
 
-
+/*
     val HSIX40 = listOf(1,1,1,1)
     val HSIX32 = listOf(1,1,1,2)
     val HSIX33 = listOf(1,1,1,3)
@@ -104,6 +124,8 @@ class HS(doors: Int, boxes: Int, deep: Int, unit: String,mode:String): Asserts()
 
     val HSnI1 = listOf(1)
     val HSnI02 = listOf(2)
+
+ */
 
 
 

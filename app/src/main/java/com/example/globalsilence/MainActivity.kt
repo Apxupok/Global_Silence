@@ -88,6 +88,7 @@ class MainActivity : AppCompatActivity() {
                 "Среднетемпературный"
 
             )
+            println(hs.name)
             val names = mutableListOf<String>()
             hs.listOfAsserts.forEach {
                 if (it != null) {
@@ -116,7 +117,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
         spinnerWid.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 spinnerAdapterDoor = ArrayAdapter(this@MainActivity, android.R.layout.simple_spinner_dropdown_item, arrayDoor)
@@ -124,8 +124,17 @@ class MainActivity : AppCompatActivity() {
                 spinnerAdapterBox = ArrayAdapter(this@MainActivity, android.R.layout.simple_spinner_dropdown_item, arrayBox)
                 spinnerBox.adapter = spinnerAdapterBox
 
-                val asserts = getListOfNameAsserts()
-                val parts = getListOfNameParts()
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+        }
+        spinnerDoor.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+
+                var asserts = getListOfNameAsserts()
+                var parts = getListOfNameParts()
 
                 val recycleViewAsserts = findViewById<RecyclerView>(R.id.recyclerViewAsserts)
                 recycleViewAsserts.layoutManager = LinearLayoutManager(this@MainActivity)

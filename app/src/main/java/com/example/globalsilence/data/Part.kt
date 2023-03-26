@@ -1,6 +1,6 @@
-package com.example.globalsilence.model
+package com.example.globalsilence.data
 
-abstract class Parts
+abstract class Part
 {
     open var length:Int = 0
         get() {

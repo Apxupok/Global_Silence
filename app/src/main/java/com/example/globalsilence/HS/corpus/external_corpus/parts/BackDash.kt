@@ -1,8 +1,8 @@
 package com.example.globalsilence.HS.corpus.external_corpus.parts
 
-import com.example.globalsilence.model.Parts
+import com.example.globalsilence.data.Part
 
-class BackDash(lengthP:Int,heighP:Int): Parts() {
+class BackDash(lengthP:Int,heighP:Int): Part() {
     override var length: Int = lengthP
     override var height: Int = heighP
     override  var deep: Int = 20

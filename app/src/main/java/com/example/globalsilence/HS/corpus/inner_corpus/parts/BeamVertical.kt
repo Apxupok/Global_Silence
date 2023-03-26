@@ -1,8 +1,8 @@
 package com.example.globalsilence.HS.corpus.inner_corpus.parts
 
-import com.example.globalsilence.model.Parts
+import com.example.globalsilence.data.Part
 
-class BeamVertical(lengthP: Int,heightP:Int): Parts() {
+class BeamVertical(lengthP: Int,heightP:Int): Part() {
     override var length: Int = 0
     override var height: Int = 0
     override var name: String = ""

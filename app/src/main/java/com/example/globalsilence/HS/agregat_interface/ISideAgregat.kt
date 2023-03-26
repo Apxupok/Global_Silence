@@ -1,8 +1,16 @@
 package com.example.globalsilence.HS.agregat_interface
 
+import com.example.globalsilence.data.Assert
+import com.example.globalsilence.data.Part
+
 interface ISideAgregat {
-    val section: Int
-    val length:Int
+    var name: String
+    var length : Int
+    var section :Int
+    var height : Int
+
+    var listOfAsserts: MutableList<Assert?>
+    var listOfParts : MutableList<Part?>
     companion object {
         fun getSection(doors:Int,boxes:Int):Int{
             return doors + if (boxes%2==0){ boxes/2 } else boxes/3

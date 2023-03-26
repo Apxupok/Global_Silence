@@ -1,17 +1,19 @@
 package com.example.globalsilence.HS.corpus.inner_corpus
 
 import com.example.globalsilence.HS.corpus.inner_corpus.parts.*
-import com.example.globalsilence.model.Asserts
-import com.example.globalsilence.model.Parts
+import com.example.globalsilence.data.Assert
+import com.example.globalsilence.data.Part
 import com.example.globalsilence.HS.agregat_interface.IBottomAgregat
 import com.example.globalsilence.HS.agregat_interface.ISideAgregat
 import com.example.globalsilence.HS.agregat_interface.ISmallAgregrat
 
-class InnerCorpus(doors: Int, boxes: Int, heightP:Int, deepP: Int): Asserts(), IBottomAgregat,
+class InnerCorpus(doors: Int, boxes: Int, heightP:Int, deepP: Int):  IBottomAgregat,
     ISideAgregat, ISmallAgregrat {
+    override var name= ""
     override var section = 0
     override var length = 0
     override var height = 0
+    override var deep = 0
 
     var sideDashL = SideDash(0, 0, "левая", 0)
     var sideDashR = SideDash(0, 0, "правая", 0)
@@ -22,7 +24,8 @@ class InnerCorpus(doors: Int, boxes: Int, heightP:Int, deepP: Int): Asserts(), I
     var bottom = Bottom(0,0)
     var panel = Panel(130,0)
 
-    override var listOfParts = mutableListOf<Parts?>()
+    override var listOfAsserts = mutableListOf<Assert?>()
+    override var listOfParts = mutableListOf<Part?>()
     init {
         when (heightP){
             660 -> {
