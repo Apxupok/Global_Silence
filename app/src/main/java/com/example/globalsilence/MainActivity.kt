@@ -8,8 +8,11 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import com.example.globalsilence.HS.HS
 import com.example.globalsilence.adapter.MyAdapter
+import com.example.globalsilence.database.AppDatabase
+import com.example.globalsilence.database.Part
 
 val listOfLengthDeep = listOf<Int>(500,600,700,800)
 
@@ -29,6 +32,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val db = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java, "database-name"
+        ).build()
+        val partDao = db.partDao()
+
+        Thread {
+            val parts: List<Part> = partDao.getAllParts()
+            // Обработка полученных данных
+        }.start()
+        println()
+
 
 
         val spinnerAdapterAgr = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, arrayAgregat)
