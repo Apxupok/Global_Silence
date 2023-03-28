@@ -34,16 +34,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val db = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "database-name"
-        ).build()
-        val partDao = db.partDao()
+            this,
+            AppDatabase::class.java, "database").build()
+
 
         Thread {
+            val partDao = db.partDao()
+            val part = Part(1,"Misha","Vydrin")
+            partDao.insertPart(part)
+
             val parts: List<Part> = partDao.getAllParts()
             // Обработка полученных данных
+            //println(parts.toString())
         }.start()
-        println()
+
 
 
 
